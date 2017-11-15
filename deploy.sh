@@ -9,7 +9,7 @@ HELM_VALUES_PATH="helm/${BUILD_ENVIRONMENT}"
 
 ## Prepare credentials
 
-echo ${GOOGLE_CLOUD_DEPLOYMENT_SERVICE_ACC} | base64 --decode > SERVICE_ACC_KEY_FILE
+echo ${GOOGLE_CLOUD_KMS_SERVICE_ACC} | base64 --decode > SERVICE_ACC_KEY_FILE
 gcloud auth activate-service-account --key-file SERVICE_ACC_KEY_FILE
 gcloud container clusters get-credentials ${KUBERNETES_CLUSTER_NAME} --zone ${KUBERNETES_CLUSTER_ZONE} --project ${GOOGLE_CLOUD_PROJECT_NAME}
 
