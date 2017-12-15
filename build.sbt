@@ -1,4 +1,4 @@
-import com.typesafe.sbt.packager.docker.DockerVersion
+//import com.typesafe.sbt.packager.docker.DockerVersion
 
 name := "toy-component"
 
@@ -20,6 +20,6 @@ maintainer in Docker := "peter.gerhard@commercetools.de"
 
 //dockerExposedPorts := Seq(8080)
 
-dockerVersion := DockerVersion.parse("17.09.1")
+//dockerVersion := DockerVersion.parse("17.09.1")
 
 //dockerExposedVolumes in Docker = ""

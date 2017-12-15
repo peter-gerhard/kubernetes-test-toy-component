@@ -7,7 +7,7 @@ import akka.stream.ActorMaterializer
 
 object Server extends App {
 
-  implicit val actorSystem: ActorSystem = ActorSystem("Hello World")
+  implicit val actorSystem: ActorSystem = ActorSystem("HelloWorld")
   implicit val actorMaterializer: ActorMaterializer = ActorMaterializer()
 
   val route =
@@ -19,5 +19,7 @@ object Server extends App {
       }
     }
 
-  Http().bindAndHandle(route,"localhost",8080)
+  val port = 8080
+  println(s"Binding server to port $port")
+  Http().bindAndHandle(route, "localhost", port)
 }
