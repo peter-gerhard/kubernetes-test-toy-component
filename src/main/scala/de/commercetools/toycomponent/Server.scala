@@ -1,15 +1,23 @@
 package de.commercetools.toycomponent
 
-import fs2.Task
-import org.http4s.server.blaze.BlazeBuilder
-import org.http4s.util.StreamApp
+import akka.actor.ActorSystem
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.server.Directives._
+import akka.stream.ActorMaterializer
 
-import scala.util.Properties.envOrNone
+object Server extends App {
 
-object Server extends StreamApp {
-  val port: Int = envOrNone("HTTP_PORT").fold(8080)(_.toInt)
+  implicit val actorSystem: ActorSystem = ActorSystem("Hello World")
+  implicit val actorMaterializer: ActorMaterializer = ActorMaterializer()
 
-  def stream(args: List[String]): fs2.Stream[Task, Nothing] = BlazeBuilder.bindHttp(port)
-    .mountService(HelloWorld.service, "/")
-    .serve
+  val route =
+    pathSingleSlash {
+      get {
+        complete {
+          "Hello world"
+        }
+      }
+    }
+
+  Http().bindAndHandle(route,"localhost",8080)
 }
