@@ -18,7 +18,7 @@ version in Docker := "0.0.1-SNAPSHOT"
 
 maintainer in Docker := "peter.gerhard@commercetools.de"
 
-//dockerExposedPorts := Seq(8080)
+dockerExposedPorts := Seq(8080)
 
 //dockerVersion := DockerVersion.parse("17.09.1")
 
