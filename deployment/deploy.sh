@@ -22,6 +22,11 @@ gcloud kms decrypt \
   --ciphertext-file=${HELM_VALUES_PATH}/secrets.enc
 
 
+
+
+
+
+
 ## Create a new release (helm terms) ?
 ## Generate a new kubernetes manifest / pod specification (kubernetes terms) ?
 

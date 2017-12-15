@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: toy-component
+spec:
+  containers:
+  - name: toy-component
+    image: gcr.io/commercetools-platform/toy-component:0.0.1-SNAPSHOT
+    ports:
+    - containerPort: 80
