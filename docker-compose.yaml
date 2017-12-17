@@ -1,3 +1,4 @@
+# Use these definitions to start services locally
 toy_component:
   container_name: toy-component
   image: toy-component:0.0.1-SNAPSHOT

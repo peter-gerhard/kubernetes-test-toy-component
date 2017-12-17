@@ -1,4 +1,4 @@
-//import com.typesafe.sbt.packager.docker.DockerVersion
+import com.typesafe.sbt.packager.docker.DockerVersion
 
 name := "toy-component"
 
@@ -20,6 +20,11 @@ maintainer in Docker := "peter.gerhard@commercetools.de"
 
 dockerExposedPorts := Seq(8080)
 
-//dockerVersion := DockerVersion.parse("17.09.1")
+dockerExposedVolumes := Seq(s"/etc/toy-component", s"/var/log/toy-component")
 
-//dockerExposedVolumes in Docker = ""
+dockerVersion := DockerVersion.parse("17.09.1")
+
+bashScriptExtraDefines ++= Seq(
+  """addJava "-Xms1024m"""",
+  """addJava "-Xmx1024m""""
+)
