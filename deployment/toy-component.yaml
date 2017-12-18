@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: toy-component-deployment
+  labels:
+    app: toy-component
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: toy-component
+  template:
+    metadata:
+      labels:
+        app: toy-component
+    spec:
+      containers:
+      - name: toy-component
+        image: gcr.io/ctp-playground/toy-component:0.0.1-SNAPSHOT
+        ports:
+        - containerPort: 8080
